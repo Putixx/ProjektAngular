@@ -1,0 +1,7 @@
+<div>
+    <div class="content-box" *ngFor="let event of events">
+        <a routerLink="/events/{{event._id}}">
+            <h3>{{event.name}} - ${{event.price}}</h3>
+        </a>
+    </div>
+</div>

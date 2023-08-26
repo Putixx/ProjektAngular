@@ -1,0 +1,9 @@
+<div class="content-box">
+    <h2>Purchase {{ticket.name}}</h2>
+    <p>Type: {{ticket.type}}</p>
+    <p>Price: ${{ticket.price}}</p>
+    <a routerLink="/events/{{ticket._id}}">
+        <button>Back</button>
+    </a>
+    <button (click)="buyTicket()">Buy</button>
+</div>

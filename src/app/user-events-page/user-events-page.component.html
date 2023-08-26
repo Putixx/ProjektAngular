@@ -1,0 +1,14 @@
+<div class="content-box" *ngFor="let event of events">
+    <h3>{{event.name}}</h3>
+    <p>{{event.description}}</p>
+    <p>{{event.price}}</p>
+    <div class="buttons-container">
+        <a routerLink="/edit-event/{{event._id}}">
+            <button>Edit</button>
+        </a>
+        <button (click)="onDeleteClicked(event._id)">Delete</button>
+    </div>
+</div>
+<a routerLink="/new-event">
+    <button>Create new event</button>
+</a>

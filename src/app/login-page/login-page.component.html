@@ -1,0 +1,15 @@
+<form style="margin-left: 20%;">
+    <div>
+        <label for="email">
+            E-mail:
+        </label>
+        <input id="email" name="email" type="text" [(ngModel)]="email">
+    </div>
+    <div>
+        <label for="password">
+            Password:
+        </label>
+        <input id="password" name="password" type="text" [(ngModel)]="password">
+    </div>
+    <button type="submit" (click)="onSubmit()" style="margin-left: 20%; margin-top: 10px;">Login</button>
+</form>

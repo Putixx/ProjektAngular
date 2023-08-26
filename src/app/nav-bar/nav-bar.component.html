@@ -1,0 +1,24 @@
+<div id="top-bar">
+    <ul>
+        <li>
+            <a routerLink="/events">
+                Events
+            </a>
+        </li>
+        <li>
+            <a routerLink="/my-events">
+                My events
+            </a>
+        </li>
+        <li>
+            <a routerLink="/user-profile">
+                Profile
+            </a>
+        </li>
+        <li (click)="clickEvent()">
+            <a routerLink="/login">
+                {{isLogged ? "Logout" : "Login"}}
+            </a>
+        </li>
+    </ul>
+</div>

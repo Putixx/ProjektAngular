@@ -1,0 +1,75 @@
+<form (ngSubmit)="onButtonClicked()">
+    <div>
+        <label for="name">
+            Name:
+        </label>
+        <input id="name" name="name" type="text" [(ngModel)]="name">
+    </div>
+    <div>
+        <label for="type">
+            Type:
+        </label>
+        <input id="type" name="type" type="text" [(ngModel)]="type">
+    </div>
+    <div>
+        <label for="owner">
+            Owner:
+        </label>
+        <input id="owner" name="owner" type="text" [(ngModel)]="owner">
+    </div>
+    <div>
+        <label for="street">
+            Street:
+        </label>
+        <input id="street" name="street" type="text" [(ngModel)]="street">
+    </div>
+    <div>
+        <label for="city">
+            City:
+        </label>
+        <input id="city" name="city" type="text" [(ngModel)]="city">
+    </div>
+    <div>
+        <label for="description">
+            Description:
+        </label>
+        <input id="description" name="description" type="text" [(ngModel)]="description">
+    </div>
+    <div>
+        <label for="startDate">
+            Start Date:
+        </label>
+        <input id="startDate" name="startDate" type="text" [(ngModel)]="startDate">
+    </div>
+    <div>
+        <label for="endDate">
+            End Date:
+        </label>
+        <input id="endDate" name="endDate" type="text" [(ngModel)]="endDate">
+    </div>
+    <div>
+        <label for="image">
+            Image:
+        </label>
+        <input id="image" name="image" type="text" [(ngModel)]="image">
+    </div>
+    <div>
+        <label for="latitude">
+            Latitude:
+        </label>
+        <input id="latitude" name="latitude" type="text" [(ngModel)]="latitude">
+    </div>
+    <div>
+        <label for="longitude">
+            Longitude:
+        </label>
+        <input id="longitude" name="longitude" type="text" [(ngModel)]="longitude">
+    </div>
+    <div>
+        <label for="price">
+            Price:
+        </label>
+        <input id="price" name="price" type="text" [(ngModel)]="price">
+    </div>
+    <button type="submit">{{buttonText}}</button>
+</form>
