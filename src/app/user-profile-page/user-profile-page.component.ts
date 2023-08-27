@@ -23,7 +23,7 @@ export class UserProfilePageComponent {
   }
 
   onDeleteClicked(userId: string) {
-    alert(`deleting user with id ${userId}`);
+    this.usersService.deleteUser(userId).subscribe((users) => { });
     this.router.navigateByUrl('/login').then(() => {
       sessionStorage.clear();
       window.location.reload();

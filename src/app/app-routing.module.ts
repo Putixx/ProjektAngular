@@ -8,14 +8,18 @@ import { CreateEventPageComponent } from './create-event-page/create-event-page.
 import { EditEventPageComponent } from './edit-event-page/edit-event-page.component';
 import { TicketsForEventPageComponent } from './tickets-for-event-page/tickets-for-event-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { UserEditPageComponent } from './user-edit-page/user-edit-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'events', component: EventsPageComponent, pathMatch: 'full' },
   { path: 'events/:id', component: EventDetailsPageComponent },
   { path: 'my-events', component: UserEventsPageComponent },
   { path: 'user-profile', component: UserProfilePageComponent },
+  { path: 'edit-user/:id', component: UserEditPageComponent },
   { path: 'new-event', component: CreateEventPageComponent },
   { path: 'edit-event/:id', component: EditEventPageComponent },
   { path: 'tickets/:id', component: TicketsForEventPageComponent }

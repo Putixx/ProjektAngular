@@ -15,6 +15,9 @@ import { TicketsForEventPageComponent } from './tickets-for-event-page/tickets-f
 import { EventDataFormComponent } from './event-data-form/event-data-form.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
+import { UserDataFormComponent } from './user-data-form/user-data-form.component';
+import { UserEditPageComponent } from './user-edit-page/user-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     EventDataFormComponent,
     NavBarComponent,
     LoginPageComponent,
+    RegisterPageComponent,
+    UserDataFormComponent,
+    UserEditPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

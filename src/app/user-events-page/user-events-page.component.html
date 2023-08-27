@@ -2,7 +2,7 @@
 <div class="content-box" *ngFor="let ownedEvent of ownedEvents">
     <h3>{{ownedEvent.name}}</h3>
     <p>{{ownedEvent.description}}</p>
-    <p>{{ownedEvent.price}}</p>
+    <p>Price: ${{ownedEvent.price}}</p>
     <div class="buttons-container">
         <a routerLink="/edit-event/{{ownedEvent._id}}">
             <button>Edit</button>
@@ -17,6 +17,5 @@
 <div class="content-box" *ngFor="let participatedEvent of participatedEvents">
     <h3>{{participatedEvent.name}}</h3>
     <p>{{participatedEvent.description}}</p>
-    <p>{{participatedEvent.price}}</p>
-    
+    <p>Price: ${{participatedEvent.price}}</p>
 </div>

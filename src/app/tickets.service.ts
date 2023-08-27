@@ -19,7 +19,6 @@ export class TicketsService {
     
     this.eventsService.getEvents().subscribe((events) => {
       this.event = events.events.find((event: Event) => event._id == eventId)!;
-      console.log(userId);
       const ticketBody = {
         eventId: this.event._id,
         userId: userId,

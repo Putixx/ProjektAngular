@@ -1,0 +1,9 @@
+<div class="content-box">
+    <h2>Edit user</h2>
+    <div *ngIf = "user">
+        <app-user-data-form 
+        buttonText="Save changes" 
+        [currentUser]="user"
+        (onSubmit)="onSubmit($event)"></app-user-data-form>
+    </div>
+</div>

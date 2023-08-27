@@ -9,7 +9,15 @@
         <label for="password">
             Password:
         </label>
-        <input id="password" name="password" type="text" [(ngModel)]="password">
+        <input id="password" name="password" type="password" [(ngModel)]="password">
     </div>
-    <button type="submit" (click)="onSubmit()" style="margin-left: 20%; margin-top: 10px;">Login</button>
+    <div id="login-button">
+        <button type="submit" (click)="onSubmit()" style="margin-left: 20%; margin-top: 10px;">Login</button>
+    </div>
 </form>
+
+<div>
+    <a routerLink="/register">
+        <button id="register-button">Not registered yet? click here!</button>
+    </a>
+</div>
