@@ -1,1 +1,14 @@
-<p>user-profile-page works!</p>
+<div class="content-box" *ngIf = "user">
+    <h3>Welcome {{user.username}} you data is below:</h3>
+    <p>Username: {{user.username}}</p>
+    <p>E-mail: {{user.email}}</p>
+    <p>Image: {{user.image}}</p>
+    <p>Role: {{user.role}}</p>
+    <div class="buttons-container">
+        <a routerLink="/edit-user/{{user._id}}">
+            <button>Edit your account details</button>
+        </a>
+        <button (click)="onDeleteClicked(user._id)">Delete accout</button>
+    </div>
+</div>
+

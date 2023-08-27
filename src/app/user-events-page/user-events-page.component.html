@@ -1,14 +1,22 @@
-<div class="content-box" *ngFor="let event of events">
-    <h3>{{event.name}}</h3>
-    <p>{{event.description}}</p>
-    <p>{{event.price}}</p>
+<div><h2>Your events:</h2></div>
+<div class="content-box" *ngFor="let ownedEvent of ownedEvents">
+    <h3>{{ownedEvent.name}}</h3>
+    <p>{{ownedEvent.description}}</p>
+    <p>{{ownedEvent.price}}</p>
     <div class="buttons-container">
-        <a routerLink="/edit-event/{{event._id}}">
+        <a routerLink="/edit-event/{{ownedEvent._id}}">
             <button>Edit</button>
         </a>
-        <button (click)="onDeleteClicked(event._id)">Delete</button>
+        <button (click)="onDeleteClicked(ownedEvent._id)">Delete</button>
     </div>
 </div>
 <a routerLink="/new-event">
     <button>Create new event</button>
 </a>
+<div><h2>You participate in:</h2></div>
+<div class="content-box" *ngFor="let participatedEvent of participatedEvents">
+    <h3>{{participatedEvent.name}}</h3>
+    <p>{{participatedEvent.description}}</p>
+    <p>{{participatedEvent.price}}</p>
+    
+</div>

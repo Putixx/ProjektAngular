@@ -9,24 +9,21 @@ import { TicketsService } from '../tickets.service';
   styleUrls: ['./tickets-for-event-page.component.scss']
 })
 export class TicketsForEventPageComponent implements OnInit {
-  ticket: any;
-  userId: string = "64b2b091cf283d8844d18c6d";
-  username: string = "Marcel";
-  password: string = "123";
+  ticket!: Ticket;
+  eventId: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router, private ticketsService: TicketsService) 
   { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id') ?? '';
+    this.eventId = this.route.snapshot.paramMap.get('id') ?? '';
     this.ticketsService.getTickets().subscribe(tickets => {
-      this.ticket = tickets.tickets.find((ticket: Ticket) => ticket.event === id)!;
+      this.ticket = tickets.tickets.find((ticket: Ticket) => ticket.eventId === this.eventId)!;
     });
   }
 
   buyTicket(): void {
-    this.ticketsService.addTicket(this.route.snapshot.paramMap.get('id') ?? '', this.userId)
-    //this.ticketsService.addTicket(this.route.snapshot.paramMap.get('id') ?? '') TODO: add for user
-    this.router.navigateByUrl('/events/' + this.ticket.event);
+    this.ticketsService.addTicket(this.eventId)
+    this.router.navigateByUrl(`/events/${this.ticket.eventId}`);
   }
 }

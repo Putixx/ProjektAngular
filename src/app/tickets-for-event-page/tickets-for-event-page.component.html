@@ -1,4 +1,4 @@
-<div class="content-box">
+<div *ngIf = "ticket" class="content-box">
     <h2>Purchase {{ticket.name}}</h2>
     <p>Type: {{ticket.type}}</p>
     <p>Price: ${{ticket.price}}</p>

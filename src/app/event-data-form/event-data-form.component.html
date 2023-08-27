@@ -12,12 +12,6 @@
         <input id="type" name="type" type="text" [(ngModel)]="type">
     </div>
     <div>
-        <label for="owner">
-            Owner:
-        </label>
-        <input id="owner" name="owner" type="text" [(ngModel)]="owner">
-    </div>
-    <div>
         <label for="street">
             Street:
         </label>
@@ -33,19 +27,19 @@
         <label for="description">
             Description:
         </label>
-        <input id="description" name="description" type="text" [(ngModel)]="description">
+        <textarea id="description" name="description" type="text" [(ngModel)]="description"></textarea>
     </div>
     <div>
         <label for="startDate">
             Start Date:
         </label>
-        <input id="startDate" name="startDate" type="text" [(ngModel)]="startDate">
+        <input id="startDate" name="startDate" type="date" [(ngModel)]="startDate">
     </div>
     <div>
         <label for="endDate">
             End Date:
         </label>
-        <input id="endDate" name="endDate" type="text" [(ngModel)]="endDate">
+        <input id="endDate" name="endDate" type="date" [(ngModel)]="endDate">
     </div>
     <div>
         <label for="image">

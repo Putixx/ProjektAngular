@@ -22,7 +22,7 @@ export interface Ticket {
   type: string;
   price: number;
   date: Date;
-  event: string;
+  eventId: string;
 }
 
 export interface User {

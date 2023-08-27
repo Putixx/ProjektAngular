@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Event } from '../types'
+import { Event } from '../types';
 
 @Component({
   selector: 'app-event-data-form',
   templateUrl: './event-data-form.component.html',
-  styleUrls: ['./event-data-form.component.scss']
+  styleUrls: ['./event-data-form.component.scss'],
 })
 export class EventDataFormComponent implements OnInit {
   @Input() buttonText: string = 'click';
@@ -23,30 +23,42 @@ export class EventDataFormComponent implements OnInit {
   image: string = '';
   latitude: number = 0;
   longitude: number = 0;
-  participants: string[] = [''];
+  participants: string[] = [];
   price: number = 0;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.name = this.currentEvent.name;
-    this.type = this.currentEvent.type;
-    this.owner = this.currentEvent.owner;
-    this.street = this.currentEvent.street;
-    this.city = this.currentEvent.city;
-    this.description = this.currentEvent.description;
-    this.startDate = this.currentEvent.startDate;
-    this.endDate = this.currentEvent.endDate;
-    this.image = this.currentEvent.image;
-    this.latitude = this.currentEvent.latitude;
-    this.longitude = this.currentEvent.longitude;
-    this.participants = this.currentEvent.participants;
-    this.price = this.currentEvent.price;
+    if (this.currentEvent) {
+      this.name = this.currentEvent.name;
+      this.type = this.currentEvent.type;
+      this.owner = this.currentEvent.owner;
+      this.street = this.currentEvent.street;
+      this.city = this.currentEvent.city;
+      this.description = this.currentEvent.description;
+      this.startDate = this.currentEvent.startDate;
+      this.endDate = this.currentEvent.endDate;
+      this.image = this.currentEvent.image;
+      this.latitude = this.currentEvent.latitude;
+      this.longitude = this.currentEvent.longitude;
+      this.participants = this.currentEvent.participants;
+      this.price = this.currentEvent.price;
+    }
   }
 
   onButtonClicked(): void {
+    if (!this.participants.includes(sessionStorage.getItem('userId') + '')) {
+      this.participants.push(sessionStorage.getItem('userId') + '');
+    }
+    if (this.owner == '' || this.owner == undefined) {
+      this.owner = sessionStorage.getItem('userId') + '';
+    }
+    let eventId: string = '';
+    if (this.currentEvent) {
+      eventId = this.currentEvent._id;
+    }
     this.onSubmit.emit({
-      _id: this.currentEvent._id,
+      _id: eventId,
       name: this.name,
       type: this.type,
       owner: this.owner,
@@ -60,8 +72,7 @@ export class EventDataFormComponent implements OnInit {
       longitude: Number(this.longitude),
       participants: this.participants,
       price: Number(this.price),
-      isPromoted: false
-    })
+      isPromoted: false,
+    });
   }
-
 }

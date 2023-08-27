@@ -1,7 +1,9 @@
 <div class="content-box">
     <h2>Edit event</h2>
-    <app-event-data-form 
-    buttonText="Save changes"
-    [currentEvent]="event"
-    (onSubmit)="onSubmit()"></app-event-data-form>
+    <div *ngIf = "event">
+        <app-event-data-form 
+        buttonText="Save changes" 
+        [currentEvent]="event"
+        (onSubmit)="onSubmit($event)"></app-event-data-form>
+    </div>
 </div>

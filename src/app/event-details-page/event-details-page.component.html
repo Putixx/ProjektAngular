@@ -1,12 +1,14 @@
-<div class="content-box">
+<div *ngIf = "event" class="content-box">
     <h2>{{event.name}}</h2>
     <p>{{event.description}}</p>
     <p>{{event.type}}</p>
     <p>${{event.price}}</p>
-    <a routerLink="/events">
-        <button>Back</button>
-    </a>
-    <a routerLink="/tickets/{{event._id}}">
-        <button>Buy ticket</button>
-    </a>
+    <div class="buttons-container">
+        <a routerLink="/events">
+            <button>Back</button>
+        </a>
+        <a routerLink="/tickets/{{event._id}}">
+            <button>Buy ticket</button>
+        </a>
+    </div>
 </div>

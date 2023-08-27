@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { SharedLoginService } from '../shared-login.service';
 
@@ -12,7 +12,11 @@ export class LoginPageComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient, private router: Router, private sharedLoginService: SharedLoginService) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private sharedLoginService: SharedLoginService
+  ) {}
 
   onSubmit() {
     const httpOptions = {
@@ -29,9 +33,10 @@ export class LoginPageComponent {
         httpOptions
       )
       .subscribe((user: any) => {
+        sessionStorage.setItem('userId', user.body?._id);
         sessionStorage.setItem('token', user.body?.token);
         sessionStorage.setItem('userEmail', user.body?.email);
-        
+
         this.sharedLoginService.emitChange(true);
         this.router.navigate(['/events']);
       });

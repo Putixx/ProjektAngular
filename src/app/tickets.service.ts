@@ -1,53 +1,39 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ticket, Event, User } from './types';
+import { Ticket, Event } from './types';
 import { EventsService } from './events.service';
-import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TicketsService {
   event!: Event;
-  user!: User;
 
   constructor(
     private http: HttpClient,
-    private eventsService: EventsService,
-    private usersService: UsersService
+    private eventsService: EventsService
   ) {}
 
-  addTicket(eventId: string, userId: string) {
+  addTicket(eventId: string) {
+    const userId = sessionStorage.getItem('userId');
+    
     this.eventsService.getEvents().subscribe((events) => {
-      this.event = events.events.find((event: Event) => event._id === eventId)!;
-    });
+      this.event = events.events.find((event: Event) => event._id == eventId)!;
+      console.log(userId);
+      const ticketBody = {
+        eventId: this.event._id,
+        userId: userId,
+      };
 
-    var ticketBody = {
-      name: this.event.name,
-      type: this.event.type,
-      price: this.event.price,
-      date: this.event.startDate,
-      event: this.event._id,
-    };
-
-    this.usersService.getUsers().subscribe((users) => {
-      this.user = users.users.find((user: User) => user._id === userId)!;
-    });
-
-    this.http
+      this.http
       .post<{ ticket: Ticket }>(
         'http://localhost:9090/api/tickets/create',
         ticketBody,
         this.getHttpOptions()
       )
-      .subscribe((data) => this.user.tickets.push(data.ticket._id));
-    this.http
-      .patch<{ user: User }>(
-        'http://localhost:9090/api/users/' + userId,
-        this.user,
-        this.getHttpOptions()
-      )
-      .subscribe((data) => console.log(data));
+      .subscribe((data) => { });
+    
+    });
   }
 
   getTickets() {
