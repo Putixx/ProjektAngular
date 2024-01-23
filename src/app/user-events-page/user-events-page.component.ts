@@ -41,7 +41,7 @@ export class UserEventsPageComponent implements OnInit {
   }
 
   onDeleteClicked(eventId: string): void {
-    this.eventsService.deleteEvent(eventId).subscribe((event) => {});
-    window.location.reload();
+    this.eventsService.deleteEvent(eventId).subscribe((event) => window.location.reload());
+    
   }
 }

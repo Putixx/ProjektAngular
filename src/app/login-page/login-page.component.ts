@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { SharedLoginService } from '../shared-login.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login-page',
@@ -11,6 +12,7 @@ import { SharedLoginService } from '../shared-login.service';
 export class LoginPageComponent {
   email: string = '';
   password: string = '';
+  additionalMessage: string = '';
 
   constructor(
     private http: HttpClient,
@@ -39,6 +41,12 @@ export class LoginPageComponent {
 
         this.sharedLoginService.emitChange(true);
         this.router.navigate(['/events']);
+        this.additionalMessage = '';
+      }, err => {
+        this.additionalMessage = 'E-mail or password is incorrect! Please try again!';
       });
+  }
+  private handleError(error: HttpErrorResponse) {
+    
   }
 }

@@ -11,6 +11,9 @@
         </label>
         <input id="password" name="password" type="password" [(ngModel)]="password">
     </div>
+    <div id="loginMessage">
+        {{additionalMessage}}
+    </div>
     <div id="login-button">
         <button type="submit" (click)="onSubmit()" style="margin-left: 20%; margin-top: 10px;">Login</button>
     </div>

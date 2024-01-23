@@ -20,7 +20,7 @@ export class EventDataFormComponent implements OnInit {
   description: string = '';
   startDate: Date = new Date();
   endDate: Date = new Date();
-  image: string = '';
+  image: string = 'empty';
   latitude: number = 0;
   longitude: number = 0;
   participants: string[] = [];

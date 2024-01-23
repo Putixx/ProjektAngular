@@ -19,6 +19,7 @@ export class UserProfilePageComponent {
   ngOnInit(): void {
     this.usersService.getUsers().subscribe((users) => {
       this.user = users.users.find((user: User) => user._id === sessionStorage.getItem('userId'))!;
+      console.log(this.user.image);
     });
   }
 

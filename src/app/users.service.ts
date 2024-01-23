@@ -31,7 +31,7 @@ export class UsersService {
     );
   }
 
-  updateUser(user: any) {
+  updateUser(user: User) {
     const updateBody = {
       username: user.username,
       email: user.email,
